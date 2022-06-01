@@ -12,7 +12,11 @@
   Contributor: <a href="https://twitter.com/DfArchon">@DfArchon</a>
 </p>
 
+
 # DF GAIA
+
+[中文](https://github.com/dfarchon/DF-GAIA/blob/main/README.zh-cn.md) /
+[English](https://github.com/dfarchon/DF-GAIA/blob/main/README.md)
 
 **A user-friendly dark forest plugin development library**, which is based  on dark forest v0.6.5.
 
@@ -30,7 +34,7 @@ If you are a **player**, you only need to read Chapter 1 and 2 to have a basic u
 
 If you are a **developer**, and want to use DF GAIA to develop function modules or participate in our development activities, you can read other chapters and our introduction documents.
 
-If you have any questions on how to use our plugins or meet some problems during development, welcome to our discord [DfArchon-Community](https://discord.gg/XkudXPAWZF), we will reply as soon as posible.
+If you have any questions on how to use our plugins or meet some problems during development, welcome to our discord [DfArchon-Community](https://discord.gg/XkudXPAWZF), we will reply as soon as possible.
 
 Besides, welcome to donate to us on gitcoin to support our development work.
 
