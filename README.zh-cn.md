@@ -11,6 +11,8 @@
 </p>
 
 # DF GAIA
+[中文](https://github.com/dfarchon/DF-GAIA/blob/main/README.zh-cn.md) /
+[English](https://github.com/dfarchon/DF-GAIA/blob/main/README.md)
 
 **一个用户友好的黑暗森林插件开发库**，基于黑暗森林v0.6.5的底层接口开发。
 
@@ -86,6 +88,8 @@ export { default } from "http://127.0.0.1:2222/DevAutoGear.js?dev";
 
 关于上述三个用户面板更进一步的描述，请参考我们的玩家使用手册。
 
+
+[如何使用DevPublic](https://github.com/dfarchon/DF-GAIA/blob/main/docs/DevPublic.zh-cn.md)
 
 
 ## 3. 架构介绍
