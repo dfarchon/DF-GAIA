@@ -90,6 +90,8 @@ export { default } from "http://127.0.0.1:2222/DevAutoGear.js?dev";
 
 For a further description of the above user panels, please refer to our player manuals.
 
+[how to use DevPublic](https://github.com/dfarchon/DF-GAIA/blob/main/docs/DevPublic.en-us.md)
+
 
 
 ## 3. Architecture introduction
