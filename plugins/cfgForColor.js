@@ -27,6 +27,7 @@ export const HAVE_CAPUTRED = "#005a9a";
 export const MOVE_SILVER_SOURCE = "#FFD700";
 export const MOVE_SILVER_TO_PLANETS = "#009966";
 export const MOVE_SILVER_TO_BLOCKHOLES = "#FF9966";
+export const MOVE_SILVER_TO_OTHERS = '#FF9933';
 
 //withdraw silver
 export const BLOCKHOLES_THAT_WITHDRAW_SILVER = "#FFCC99";

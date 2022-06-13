@@ -93,6 +93,14 @@ import {
     sectionGossipSelected,
     sectionGossipDraw
 } from './sectionGossip';
+
+import {
+    sectionCenterSilverDraw,
+    setTargetState,
+    setSourceState,
+    selectedToCenterSilver
+} from './sectionCenterSilver';
+
 import { getArrivalsToPlanet, getMyEnergyMoveToPlanet, getOtherEnergyMoveToPlanet } from "./logicForMoveEnergy";
 import { artifactFilter } from "./logicForArtifactState";
 import { drawCenter, drawRound } from "./display";
@@ -281,6 +289,10 @@ function dfGaia() {
         await selectedToCenterEnergyAndSilver(setInfo);
     }
 
+    async function centerSilverSelected(){
+        await selectedToCenterSilver(setInfo);
+    }
+
     async function collect6() {
         await sectionCollect(setInfo, undefined, [], 6);
     }
@@ -313,6 +325,7 @@ function dfGaia() {
 
 
     <button style=${getButtonStyle('250px')} onClick=${centerEnergyAndSilverSelected}> center energy&silver selected</button>
+    <button style=${getButtonStyle('250px')} onClick=${centerSilverSelected}> center silver selected</button>
     <button style=${getButtonStyle('100px')} onClick=${collect6}> collect 6</button>
     
 
@@ -353,6 +366,7 @@ class Plugin {
         sectionCatchYellowDraw(ctx);
         sectionCatchInvadedDraw(ctx);
         sectionCenterEnergyAndSilverDraw(ctx);
+        sectionCenterSilverDraw(ctx);
         sectionCollectDraw(ctx);
         sectionClusterDraw(ctx);
 
