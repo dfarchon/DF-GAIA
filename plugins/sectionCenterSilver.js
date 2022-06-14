@@ -190,11 +190,11 @@ export async function sectionCenterSilver(setInfo, targetPlanet = undefined, max
         let candidates = Array.from(df.getMyPlanets())
             .filter(sourceFilter)
             .filter(p => targetPlanets.includes(p) === false)
-            .filter(p => {
-                if (isNoOwner(to)) return p.planetLevel <= to.planetLevel ;
-                else if (isOther(to)) return p.planetLevel <= to.planetLevel ;
-                else return p.planetLevel <= to.planetLevel;
-            })
+            // .filter(p => {
+            //     if (isNoOwner(to)) return p.planetLevel <= to.planetLevel ;
+            //     else if (isOther(to)) return p.planetLevel <= to.planetLevel ;
+            //     else return p.planetLevel <= to.planetLevel;
+            // })
             .filter(p => {
                 let dist = df.getDist(p.locationId, to.locationId);
                 let range = calRange(p);
