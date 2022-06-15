@@ -96,7 +96,7 @@ function sourceFilter(planet) {
         planet.planetLevel >= sourceMinLevel &&
         planet.planetLevel <= sourceMaxLevel &&
         getEnergyPercent(planet) >= 15 &&
-        getSilverCanSend(planet) >= planet.silverCap * 0.4 &&
+        (getSilverCanSend(planet) >= planet.silverCap * 0.4 || getSilverCanSend(planet) >= 1000)&&
         getOtherEnergyMoveToPlanet(planet) === 0 &&
         (captureZonesEnabled? true:canCapture(planet, false) === false);
 }
