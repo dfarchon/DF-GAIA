@@ -203,10 +203,12 @@ export async function sectionCenterSilver(setInfo, targetPlanet = undefined, max
                 let dist = df.getDist(p.locationId, to.locationId);
                 let range = calRange(p);
                 let silverCanSend = getSilverCanSend(p);
-                let silverArriving  = silverCanSend;
+                let silverArriving = silverCanSend;
+
                 if (silverArriving <to.silverCap * 0.01) return false;
                 if(p.planetLevel<=3) return dist<range;
-                else return dist < range * 0.5;
+                else if(p.planetLevel<=4) return dist<range*0.75;
+                else return dist < range * 0.6;
             })
             .filter(p => {
                 let time = df.getTimeForMove(p.locationId, to.locationId);
@@ -222,8 +224,8 @@ export async function sectionCenterSilver(setInfo, targetPlanet = undefined, max
                 let bSilver = getSilverCanSend(b);
              //   if(aSilver !==bSilver) return bSilver - aSilver;
                 return aTime - bTime;
-
             });
+    
 
         content = '[CS] ' + candidates.length + ' candidate(s)';
         itemInfo = colorInfo(content, colorForInfo);
