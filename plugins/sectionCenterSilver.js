@@ -4,7 +4,7 @@ import { getCaptureZonesEnabled, canCapture } from "./logicForInvadeAndCapture";
 import { drawRound } from "./display";
 import { beginSection, center, endSection, getPlanetName, sleep } from "./logicForBasic";
 import { getArrivalsToPlanet, getEnergyCanSend, getOtherEnergyMoveToPlanet, getTrueEnergyPercent, getMyEnergyMoveToPlanet } from "./logicForMoveEnergy";
-import { calRange, destroyedFilter, getEnergyPercent, isPlanet, isQuasar, isSpacetimeRip, radiusFilter } from "./logicForPlanetState";
+import { calRange, destroyedFilter, getEnergyPercent, isAsteroidField, isPlanet, isQuasar, isSpacetimeRip, radiusFilter } from "./logicForPlanetState";
 import { addToLog, colorInfo, colorInfoWithFunc, greenInfo, normalInfo } from './infoUtils';
 import { MAX_WAIT_TIME_FOR_CENTER_ENERGY } from './cfgForBasic';
 import { getNeedSilver,getSilverCanSend, getSilverMoveToPlanet,getTrueSilverInTheFuture  } from "./logicForMoveSilver";
@@ -197,7 +197,7 @@ export async function sectionCenterSilver(setInfo, targetPlanet = undefined, max
             // })
             .filter(p=>{
                 if(p.planetLevel<=3) return true;
-                else return isSpacetimeRip(p);
+                else return isAsteroidField(p);
             })
             .filter(p => {
                 let dist = df.getDist(p.locationId, to.locationId);
