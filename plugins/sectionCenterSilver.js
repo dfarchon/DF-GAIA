@@ -195,13 +195,18 @@ export async function sectionCenterSilver(setInfo, targetPlanet = undefined, max
             //     else if (isOther(to)) return p.planetLevel <= to.planetLevel ;
             //     else return p.planetLevel <= to.planetLevel;
             // })
+            .filter(p=>{
+                if(p.planetLevel<=3) return true;
+                else return isSpacetimeRip(p);
+            })
             .filter(p => {
                 let dist = df.getDist(p.locationId, to.locationId);
                 let range = calRange(p);
                 let silverCanSend = getSilverCanSend(p);
                 let silverArriving  = silverCanSend;
                 if (silverArriving <to.silverCap * 0.01) return false;
-                return dist < range * 0.5;
+                if(p.planetLevel<=3) return dist<range;
+                else return dist < range * 0.5;
             })
             .filter(p => {
                 let time = df.getTimeForMove(p.locationId, to.locationId);
