@@ -10,7 +10,7 @@ import { waitForMoveOnchain } from "./logicForMove";
 import { isNoOwner, isOther } from "./logicForAccount";
 import { getJunkEnabled, getMyJunkBudget } from "./logicForJunk";
 import { sectionAbandon } from "./sectionAbandon";
-import { colorForInfo, ENERGY_TARGET_PLANETS, ENERGY_SOURCE_PLANETS, colorForWarn,colorForError } from './cfgForColor';
+import { colorForInfo, ENERGY_TARGET_PLANETS, ENERGY_SOURCE_PLANETS, colorForWarn } from './cfgForColor';
 import { canCapture } from "./logicForInvadeAndCapture";
 import { artifactFilter } from "./logicForArtifactState";
 
@@ -74,7 +74,7 @@ function sourceFilter(planet) {
 
 
 
-export async function selectedToCenterEnergyAndSilver(setInfo,mode) {
+export async function selectedToCenterEnergyAndSilver(setInfo) {
     let p = ui.getSelectedPlanet();
     let content, itemInfo;
     if (p === undefined) {
@@ -83,26 +83,17 @@ export async function selectedToCenterEnergyAndSilver(setInfo,mode) {
         addToLog(itemInfo, setInfo);
         return;
     }
-    await sectionCenterEnergyAndSilver(setInfo,p,1,mode);
+    await sectionCenterEnergyAndSilver(setInfo, p);
 }
 
 
-// mode === 1 sorted mainly by energy landing 
-// mode === 2 sorted mainly by time 
-export async function sectionCenterEnergyAndSilver(setInfo, targetPlanet = undefined, maxTargetNumber = 6,mode =1) {
+export async function sectionCenterEnergyAndSilver(setInfo, targetPlanet = undefined, maxTargetNumber = 6) {
 
     beginSection('[CE&S] === center energy & silver begin ===', setInfo);
-    if(mode === 1){
-        beginSection('[CE&S] sorted mainly by energyLanding',setInfo);
-    }else {
-        beginSection('[CE&S] sorted mainly by time',setInfo);
-
-    }
 
     drawSign = true;
     showInit();
     let content, onClick, itemInfo;
-  
 
     content = '[CE&S] NOTICE: not consider the energy growth';
     itemInfo = greenInfo(content);
@@ -173,7 +164,7 @@ export async function sectionCenterEnergyAndSilver(setInfo, targetPlanet = undef
             .filter(p => {
                 if (isNoOwner(to)) return p.planetLevel <= to.planetLevel + 1;
                 else if (isOther(to)) return p.planetLevel <= to.planetLevel + 1;
-                else return p.planetLevel < to.planetLevel;
+                else return p.planetLevel <= to.planetLevel;
             })
             .filter(p => {
                 let dist = df.getDist(p.locationId, to.locationId);
@@ -199,14 +190,9 @@ export async function sectionCenterEnergyAndSilver(setInfo, targetPlanet = undef
                 let aEnergyLanding = df.getEnergyArrivingForMove(a.locationId, to.locationId, aDist, aEnergy);
                 let bEnergyLanding = df.getEnergyArrivingForMove(b.locationId, to.locationId, bDist, bEnergy);
 
-                if(mode === 1){
-                    if (aEnergyLanding !== b.energyLanding) return bEnergyLanding - aEnergyLanding;
-                    else return aTime - bTime;
-                }else if(mode === 2){
-                    if(aTime!==bTime) return aTime - bTime;
-                    else return bEnergyLanding - aEnergyLanding;
-                }
-              
+                if (aEnergyLanding !== b.energyLanding) return bEnergyLanding - aEnergyLanding;
+                else return aTime - bTime;
+
             });
 
 
