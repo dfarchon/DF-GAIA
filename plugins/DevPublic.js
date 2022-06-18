@@ -93,14 +93,6 @@ import {
     sectionGossipSelected,
     sectionGossipDraw
 } from './sectionGossip';
-
-import {
-    sectionCenterSilverDraw,
-    setTargetState,
-    setSourceState,
-    selectedToCenterSilver
-} from './sectionCenterSilver';
-
 import { getArrivalsToPlanet, getMyEnergyMoveToPlanet, getOtherEnergyMoveToPlanet } from "./logicForMoveEnergy";
 import { artifactFilter } from "./logicForArtifactState";
 import { drawCenter, drawRound } from "./display";
@@ -276,17 +268,19 @@ function dfGaia() {
         await selectOneToCatchYellow(setInfo);
     }
 
-
     function showCatchInvadedCandidates(){
         getCatchInvadedPreCandidates(setInfo);
     }
     async function catchInvadedSelcted() {
         await selectOneToCatchInvaded(setInfo);
-
     }
    
     async function centerEnergyAndSilverSelected() {
         await selectedToCenterEnergyAndSilver(setInfo);
+    }
+    
+    async function centerEnergyAndSilverSelected2() {
+        await selectedToCenterEnergyAndSilver(setInfo,2);
     }
 
     async function centerSilverSelected(){
@@ -323,9 +317,10 @@ function dfGaia() {
     <button style=${getButtonStyle('250px')} onClick=${ showCatchInvadedCandidates}> catch invaded candidates</button>
     <button style=${getButtonStyle('200px')} onClick=${catchInvadedSelcted}> catch invaded selected</button>
 
-
-    <button style=${getButtonStyle('250px')} onClick=${centerEnergyAndSilverSelected}> center energy&silver selected</button>
+    <button style=${getButtonStyle('260px')} onClick=${centerEnergyAndSilverSelected}> center energy&silver selected 1</button>
+    <button style=${getButtonStyle('260px')} onClick=${centerEnergyAndSilverSelected2}> center energy&silver selected 2</button>
     <button style=${getButtonStyle('250px')} onClick=${centerSilverSelected}> center silver selected</button>
+
     <button style=${getButtonStyle('100px')} onClick=${collect6}> collect 6</button>
     
 

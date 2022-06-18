@@ -1,5 +1,6 @@
 
 import { MOVE_SILVER_SOURCE, MOVE_SILVER_TO_PLANETS, MOVE_SILVER_TO_BLOCKHOLES, MOVE_SILVER_TO_OTHERS } from './cfgForColor';
+import { colorForInfo,colorForWarn,colorForError} from './cfgForColor';
 import { getCaptureZonesEnabled, canCapture } from "./logicForInvadeAndCapture";
 import { drawRound } from "./display";
 import { beginSection, center, endSection, getPlanetName, sleep } from "./logicForBasic";
@@ -12,7 +13,6 @@ import { waitForMoveOnchain } from "./logicForMove";
 import { isNoOwner, isOther } from "./logicForAccount";
 import { getJunkEnabled, getMyJunkBudget } from "./logicForJunk";
 import { sectionAbandon } from "./sectionAbandon";
-import { colorForInfo} from './cfgForColor';
 import { artifactFilter } from './logicForArtifactState';
 
 

@@ -8,7 +8,8 @@ import { MAX_WAIT_TIME_FOR_COLLECT_ENERGY } from './cfgForBasic';
 import { getSilverCanSend, getSilverMoveToPlanet } from "./logicForMoveSilver";
 import { waitForMoveOnchain } from "./logicForMove";
 import { isMine, isOther } from "./logicForAccount";
-import { colorForInfo, ENERGY_TARGET_PLANETS, ENERGY_SOURCE_PLANETS } from './cfgForColor';
+import { colorForInfo, colorForWarn, colorForError} from './cfgForColor';
+import { ENERGY_TARGET_PLANETS, ENERGY_SOURCE_PLANETS } from './cfgForColor';
 import { artifactFilter } from "./logicForArtifactState";
 import { canCapture } from "./logicForInvadeAndCapture";
 
